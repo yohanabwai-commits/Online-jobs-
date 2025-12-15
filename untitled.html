@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Job Board - Find Your Career Worldwide</title>
+
+    <style>
+        /* Base Styles & Reset */
+        :root {
+            --primary-color: #3f51b5; /* Indigo Blue */
+            --secondary-color: #ff9800; /* Orange Accent */
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+            --white-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white-bg);
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky; /* Sticky header for mobile view */
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--white-bg);
+        }
+
+        .nav-links a {
+            color: var(--white-bg);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Search Bar Section */
+        .hero-search {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .hero-search h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .search-form input[type="text"] {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .search-form button {
+            background-color: var(--secondary-color);
+            color: var(--white-bg);
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .search-form button:hover {
+            background-color: #e68900;
+        }
+
+        /* Main Content & Job Listings */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .job-listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .job-card {
+            background: var(--white-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .job-card .meta {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .job-card .meta span {
+            margin-right: 15px;
+        }
+
+        .job-card a.apply-btn {
+            display: inline-block;
+            background-color: #4caf50; /* Green button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .job-card a.apply-btn:hover {
+            background-color: #388e3c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--light-bg);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Mobile Responsiveness (Small Screens) */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 10px;
+            }
+            
+            .nav-links a {
+                margin: 0 8px;
+                display: block;
+                padding: 5px 0;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-form input[type="text"],
+            .search-form button {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .search-form input[type="text"] {
+                border-bottom: 1px solid var(--secondary-color);
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">🌏 Global Jobs</a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#jobs">Browse Jobs</a>
+                <a href="#employers">For Employers</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-search">
+        <h1>Find Your Next Global Career Opportunity</h1>
+        <form class="search-form">
+            <input type="text" placeholder="Job Title, Keyword, or Company" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Featured Worldwide Opportunities</h2>
+        
+        <div class="job-listing-grid">
+
+            <div class="job-card">
+                <h3>Senior Full Stack Developer</h3>
+                <div class="meta">
+                    <span>🌍 Location: **Remote** (Global)</span> |
+                    <span>🏢 Company: **Innovatech Corp**</span> |
+                    <span>💼 Type: Full-Time</span>
+                </div>
+                <p>Leading the development team for a new cloud-based application. Requires 5+ years experience in React and Node.js.</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <h3>Marketing Specialist</h3>
+                <div class="meta">
+                    <span>🌍 Location: **London, UK**</span> |
+                    <span>🏢 Company: **Global Brands Inc.**</span> |
+                    <span>💼 Type: Contract</span>
+                </div>
+                <p>Creative professional needed to manage social media campaigns across Europe and Asia. Experience with SEO is a plus.</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <h3>Data Analyst</h3>
+                <div class="meta">
+                    <span>🌍 Location: **New York, USA**</span> |
+                    <span>🏢 Company: **Finance World**</span> |
+                    <span>💼 Type: Full-Time</span>
+                </div>
+                <p>Analyzing large datasets to provide actionable insights for investment strategies. SQL and Python skills are required.</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+            
+            </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Global Job Board. All Rights Reserved.</p>
+        <p>
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Careers</a>
+        </p>
+    </footer>
+
+</body>
+</html>
